@@ -4,7 +4,7 @@ import csv
 import requests
 from bs4 import BeautifulSoup
  
-file = open('linkedin-jobs.csv', 'a',encoding="utf-8")
+file = open('linkedin-jobs.csv', 'w',encoding="utf-8")
 writer = csv.writer(file)
 writer.writerow(['Title', 'Company', 'Location', 'DatePosted'])
 
@@ -26,19 +26,21 @@ def linkedin_scraper(webpage, page_number):
             job_date = job_date_bool['datetime']
         
         writer.writerow([
-        job_title.encode("utf-8"),
-        job_company.encode("utf-8"),
-        job_location.encode("utf-8"),
-        job_date.encode("utf-8")
+        job_title,
+        job_company,
+        job_location,
+        job_date,
         ])
     
-        print('Data updated')
-    if page_number < 25:
+        
+    while page_number < 10000:
         page_number = page_number + 25
+        print(page_number)
+
         linkedin_scraper(webpage, page_number)
  
     else:
         file.close()
-    print('File closed')
+        print('File closed')
  
 linkedin_scraper('https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?keywords=Data%2BAnalyst&location=%C3%8Ele-de-France%2C%2BFrance&locationId=&geoId=104246759&f_TPR=r2592000&start=',0)
