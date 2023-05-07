@@ -10,6 +10,6 @@ The script uses **BeautifulSoup4 (bs4)** to parse the html and css to find each 
 
 i also used the requests library to communicate with the linkedin hidden api.
 
-![alt text]([http://url/to/img.png](https://imgur.com/a/Z68qiJQ))
+![alt text](http://url/to/img.png](https://imgur.com/a/Z68qiJQ)](https://pasteboard.co/tJyw4jObChge.png)
 
 
